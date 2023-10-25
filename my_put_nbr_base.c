@@ -13,15 +13,17 @@ void compute_octal(int nbr)
 {
     int i = 0;
     int j = 0;
+    int rest = 0;
+    int l = 0;
     char base_octal[] = "01234567";
-    int remainder[100];
-
-    for (i; nbr >= 0; i++) {
-        remainder[i] = nbr % 8;
+    char *str2 = malloc(sizeof(char) * 80000);
+    while (nbr != 0) {
+        rest = nbr % 8;
+        str2[l] = base_octal[rest];
+        my_putchar(str2[l]);
+        l += 1;
         nbr = nbr / 8;
     }
-    for (j = i - 1; j >= 0; j--)
-        my_putchar(remainder[j]);
 }
 
 void compute_hexadecimal(int nbr) {
@@ -45,6 +47,5 @@ void compute_hexadecimal(int nbr) {
 
 int my_put_nbr_base(int nb, char const *base)
 {
-    compute_hexadecimal(nb);
     compute_octal(nb);
 }
