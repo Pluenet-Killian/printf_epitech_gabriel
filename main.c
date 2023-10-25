@@ -5,6 +5,8 @@
 ** main
 */
 
+#include "mini_printf.h"
+
 int main(void)
 {
     mini_printf("bonjour %s, prc %%,", "Tout le monde");
