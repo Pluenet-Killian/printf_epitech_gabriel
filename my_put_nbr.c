@@ -9,24 +9,12 @@
 
 int my_put_nbr(int nb)
 {
-    int i = 0;
-    int r = 0;
-    int m = 10;
-    int s = 1;
-    int k = 0;
-
-    while (i != nb) {
-        r = nb % m;
-        s = s * 10;
-        m = m * 10;
-        k += 1;
-        i = r;
+    int debut = 0;
+    int fin = 0;
+    fin = nb % 10;
+    debut = nb / 10;
+    if (debut != 0) {
+        my_put_nbr(debut);
     }
-    m = 10;
-    s = 10;
-    for (i = k; i > 0; i--) {
-        r = nb % my_compute_power_rec(m, i) / my_compute_power_rec(s, i - 1);
-        my_putchar(r + 48);
-    }
-    k = 0;
+    my_putchar(fin + '0');
 }
