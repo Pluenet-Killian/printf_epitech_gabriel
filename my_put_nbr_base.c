@@ -7,21 +7,28 @@
 
 #include "my.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-int compute_rest(int nbr) {
-    int result = nbr / 16;
-    int rest = nbr - (result * 16);;
+void compute_hexadecimal(int nbr) {
+    int l = 0;
+    int result = 0;
+    int rest = 0;
+    char hex_chars[] = "0123456789abcdef";
+    char *str2 = malloc(sizeof(char) * 80000);
+
+    while (nbr != 0) {
+        rest = nbr % 16;
+        str2[l] = hex_chars[rest];
+        l += 1;
+        nbr /= 16;
+    }
+    for (int i = l - 1; i >= 0; i--) {
+        my_putchar(str2[i]);
+    }
+    free(str2);
 }
 
-int my_put_nbr_base(int nbr, char const *base)
+int my_put_nbr_base(int nb, char const *base)
 {
-    int first = 0;
-    int end = 0;
-    end = nbr % 10;
-    first = nbr / 10;
-    if (first != 0) {
-        my_put_nbr_base(first, base);
-    }
-    my_putchar(end + '0');
-    compute_rest(nbr);
+    compute_hexadecimal(nb);
 }
