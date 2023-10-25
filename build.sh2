@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+files=$(find . -name "*.c" -not -name "main.c")
+
+
+gcc main.c -L./ -lmy -W -o unit_tests2 --coverage -lcriterion
+./unit_tests2
