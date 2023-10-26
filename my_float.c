@@ -8,37 +8,39 @@
 #include "my.h"
 #include <stdio.h>
 
-void show_my_float(int result, int k)
+void show_my_float(int result, int k, int getnbr)
 {
     int rest = 0;
     int i = 0;
 
-    for (i = 6 + k; i > 0; i--) {
+    for (i = getnbr + k; i > 0; i--) {
         rest = result % my_compute_power_rec(10, i) /
             my_compute_power_rec(10, i - 1);
         my_putchar(rest + '0');
-        if (i == 7)
+        if (i == getnbr + k)
             my_putchar('.');
     }
 }
 
-void my_float(double nbr)
+void my_float(char const *str, double nbr)
 {
     int l = 0;
     int r = 0;
     int result = nbr;
     int count = nbr;
     int	m = 10;
-    int s = 1;
     int	k = 0;
+    int getnbr = my_getnbr(str);
 
-    result = nbr * 1000000;
+    if (getnbr != 0)
+        result = nbr * my_compute_power_rec(10, getnbr);
+    else
+        result = nbr * 100000;
     while (l != count) {
         r = count % m;
-        s = s * 10;
         m = m * 10;
         k += 1;
         l = r;
     }
-    show_my_float(result, k);
+    show_my_float(result, k, getnbr);
 }
