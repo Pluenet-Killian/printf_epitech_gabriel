@@ -7,8 +7,6 @@
 
 CC =		gcc
 
-CDFLAGS +=	
-
 NAME =		libmy.a
 
 SRC =		mini_printf.c \
@@ -20,8 +18,9 @@ SRC =		mini_printf.c \
 		my_strlen.c \
 		my_float.c \
 		hexadecimal.c \
-		hexadecimal_X.c \
+		hexadecimal_x.c \
 		octal.c \
+		get_address.c
 
 OBJ =		$(SRC:.c=.o)
 
@@ -40,4 +39,3 @@ fclean : clean
 		rm -rf $(NAME)
 
 re :		fclean all
-

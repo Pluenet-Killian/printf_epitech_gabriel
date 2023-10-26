@@ -16,6 +16,7 @@ void compute_octal(int nbr)
     int l = 0;
     char base_octal[] = "01234567";
     char *str2 = malloc(sizeof(char) * 80000);
+
     while (nbr != 0) {
         rest = nbr % 8;
         str2[l] = base_octal[rest];

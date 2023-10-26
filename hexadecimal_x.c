@@ -1,18 +1,18 @@
 /*
 ** EPITECH PROJECT, 2023
-** HEXADECIMAL
+** HEXADECIMAL_X
 ** File description:
-** hexadecimal
+** hexadecimal_x
 */
 
 #include "my.h"
 
-void hexadecimal(int nbr)
+void hexadecimal_x(int nbr)
 {
     int l = 0;
     int result = 0;
     int rest = 0;
-    char hex_chars[] = "0123456789abcdef";
+    char hex_chars[] = "0123456789ABCDEF";
     char *str2 = malloc(sizeof(char) * 80000);
 
     while (nbr != 0) {

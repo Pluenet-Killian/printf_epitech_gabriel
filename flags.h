@@ -5,13 +5,15 @@
 ** flags_h
 */
 
-#ifndef __FLAGS_H__
-    #define __FLAGS_H__
+#ifndef FLAGS_H_
+    #define FLAGS_H_
 
 void compute_octal(int);
-void compute_hexadecimal(int);
-void compute_hexadecimal_X(int);
+void hexadecimal(int);
+void hexadecimal_x(int);
 void my_float(double);
 void show_my_float(int, int);
+unsigned long int my_put_hexa_unsi_long(unsigned long int);
+void get_address(unsigned long int *ptr);
 
 #endif

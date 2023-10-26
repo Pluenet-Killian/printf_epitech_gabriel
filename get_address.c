@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2023
-** HEXADECIMAL
+** my_put_ptr.c
 ** File description:
-** hexadecimal
+** Function to displays ptr
 */
 
 #include "my.h"
 
-void hexadecimal(int nbr)
+unsigned long int my_put_hexa_unsi_long(unsigned long int nbr)
 {
     int l = 0;
     int result = 0;
@@ -25,4 +25,11 @@ void hexadecimal(int nbr)
         my_putchar(str2[i]);
     }
     free(str2);
+}
+
+void get_address(unsigned long int ptr)
+{
+    my_putstr("0x");
+    my_put_hexa_unsi_long(ptr);
+    return;
 }

@@ -11,6 +11,7 @@ int my_put_nbr(int nb)
 {
     int debut = 0;
     int fin = 0;
+
     fin = nb % 10;
     debut = nb / 10;
     if (debut != 0) {
