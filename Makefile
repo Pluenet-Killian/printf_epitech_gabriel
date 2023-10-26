@@ -20,7 +20,9 @@ SRC =		mini_printf.c \
 		hexadecimal.c \
 		hexadecimal_x.c \
 		octal.c \
-		get_address.c
+		get_address.c \
+		my_getnbr.c \
+		my_exponent.c
 
 OBJ =		$(SRC:.c=.o)
 
