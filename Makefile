@@ -17,10 +17,11 @@ SRC =		mini_printf.c \
 		my_compute_power_rec.c \
 		displays_functions.c \
 		my_putstr.c \
-		my_put_nbr_base.c \
-		my_evil_str.c \
 		my_strlen.c \
-		my_float.c
+		my_float.c \
+		hexadecimal.c \
+		hexadecimal_X.c \
+		octal.c \
 
 OBJ =		$(SRC:.c=.o)
 
