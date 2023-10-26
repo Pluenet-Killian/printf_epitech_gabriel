@@ -11,7 +11,7 @@
 void compute_octal(int);
 void hexadecimal(int);
 void hexadecimal_x(int);
-void my_float(double);
+void my_float(char const, double);
 void show_my_float(int, int);
 unsigned long int my_put_hexa_unsi_long(unsigned long int);
 void get_address(unsigned long int *ptr);
