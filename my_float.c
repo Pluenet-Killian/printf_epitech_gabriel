@@ -17,7 +17,7 @@ void show_my_float(int result, int k, int getnbr)
         rest = result % my_compute_power_rec(10, i) /
             my_compute_power_rec(10, i - 1);
         my_putchar(rest + '0');
-        if (i == getnbr + k)
+        if (i == getnbr + 1)
             my_putchar('.');
     }
 }
