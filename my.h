@@ -9,6 +9,7 @@
     #define MY_H
 
     #include <stdarg.h>
+    #include <stdlib.h>
 
 int my_compute_power_rec(int nb, int p);
 int condition_result_square_root(int result);
@@ -48,7 +49,7 @@ int my_showmen(char const *str, int size);
 char *my_strcat(char *dest, char const *src);
 char *my_strncat(char *dest, char const *src, int nb);
 char **my_str_to_word_array(char const *str);
-double my_float(double);
+void my_float(double);
 void condition_adhesion(char *temp, char *str, int i);
 int my_show_word_array(char const **tab);
 int my_put_nbr_base(int nbr, char const *base);
