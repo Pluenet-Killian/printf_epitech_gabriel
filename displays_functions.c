@@ -10,7 +10,7 @@
 
 int disp_str(va_list args)
 {
-    return my_putstr(va_arg(args, char*));
+    return my_putstr(va_arg(args, char *));
 }
 
 int disp_char(va_list args)

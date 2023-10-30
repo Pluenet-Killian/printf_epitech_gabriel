@@ -8,37 +8,33 @@
 #include <stdio.h>
 #include "my.h"
 
-double rounded_nbr_exponent(double nbr, int getnbr, int count)
+long int r_nbr_expo(double nbr, int getnbr, int count, long int result)
 {
-    double temp = nbr * my_compute_power_rec(10, getnbr);
-    double rounded_nbr;
-    long int int_part = (int)temp;
+    long int rest = result / my_compute_power_rec(10, getnbr - 1);
 
-    if (temp - int_part >= 0.5) {
-        int_part += 1;
-    }
-    rounded_nbr = (double)int_part / my_compute_power_rec(10, count - 1);
-    return rounded_nbr;
+    if (rest % 10 >= 5)
+        result = result + my_compute_power_rec(10, getnbr);
+    return result;
 }
 
 void show_exponent(int count, int getnbr, long int result)
 {
     int i = 0;
     long int rest = 0;
-    for (i = getnbr + count; i > 0; i--) {
-        rest = result % my_compute_power_rec(10, i + 1) /
-            my_compute_power_rec(10, i);
-        if (i > count - 1) {
+
+    for (i = 0; i < getnbr + 1; i++) {
+        rest = result % my_compute_power_rec(10, getnbr + count - i - 1) /
+            my_compute_power_rec(10, getnbr + count - i - 2);
             my_putchar(rest + '0');
-        } else if (i == count - 1){
+        if (i == getnbr) {
             my_putstr("e+");
             my_putchar('0');
             my_put_nbr(count - 1);
         }
-        if (i == count + getnbr  && getnbr != 0)
+        if (i == 0 && getnbr != 0)
             my_putchar('.');
     }
-    
+    my_putchar('\n');
 }
 
 int my_exponent(char const *str, double nbr)
@@ -47,15 +43,17 @@ int my_exponent(char const *str, double nbr)
     int part_entiere = (int)nbr;
     int first_part = (int)nbr;
     long int result = 0;
-    int getnbr = my_getnbr(str);
     double temp;
+    int getnbr = my_getnbr(str);
 
+     if (str[0] == '\0')
+        getnbr = 6;
     while (part_entiere != 0) {
         part_entiere = part_entiere / 10;
         count += 1;
     }
-    temp = rounded_nbr_exponent(nbr, getnbr, count);
-    result = temp * my_compute_power_rec(10, count);
+    result = nbr * my_compute_power_rec(10, getnbr - 1);
+    result = r_nbr_expo(nbr, count, getnbr, result);
     show_exponent(count, getnbr, result);
     return count + getnbr;
 }

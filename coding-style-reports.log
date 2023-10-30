@@ -1,0 +1,17 @@
+./a.out:1: MAJOR:C-O1
+./flags/flag_o.c:1: MINOR:C-G1
+./get_adress.c:10: MAJOR:C-H1
+./get_adress.c:11: MINOR:C-L4
+./main.c:16: MINOR:C-L6
+./my_exponent.c:49: MINOR:C-L2
+./my_float.c:29: MINOR:C-L2
+./my_g.c:33: MINOR:C-G7
+./my_g.c:35: MINOR:C-L2
+./my_g.c:38: MINOR:C-L2
+./my_g.c:42: MINOR:C-L2
+./my_g.c:56: MINOR:C-L2
+./my_g.c:75: MAJOR:C-O3
+./my_g.c:87: MINOR:C-L2
+./my_g.c:88: MINOR:C-L2
+./my_g.c~:1: MAJOR:C-O1
+./num_char.c~:1: MAJOR:C-O1

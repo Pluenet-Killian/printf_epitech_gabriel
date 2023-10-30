@@ -1,4 +1,3 @@
-
 /*
 ** EPITECH PROJECT, 2023
 ** my_put_ptr.c

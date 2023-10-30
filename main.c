@@ -12,8 +12,8 @@
 
 int main(void)
 {
-    double nbr = 355587;
-    my_exponent(".3", nbr);
-    printf("\n%.3e\n", nbr);
+    double nbr = 44.79;
+    my_g("4", nbr);
+    printf("\n%.4g\n", nbr);
     return 0;
 }

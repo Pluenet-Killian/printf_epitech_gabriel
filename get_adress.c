@@ -8,9 +8,7 @@
 #include <stdlib.h>
 
 void my_put_ptr(unsigned long int *ptr);
-
 {
     my_putstr("0x");
     my_put_hexa_unsi_long(ptr);
-    return;
 }
