@@ -6,9 +6,14 @@
 */
 
 #include "mini_printf.h"
+#include "my.h"
+#include "flags.h"
+#include <stdio.h>
 
 int main(void)
 {
-    mini_printf("bonjour %s, prc %%,", "Tout le monde");
+    double nbr = 355587;
+    my_exponent(".3", nbr);
+    printf("\n%.3e\n", nbr);
     return 0;
 }

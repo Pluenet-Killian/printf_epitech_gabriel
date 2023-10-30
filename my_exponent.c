@@ -1,46 +1,61 @@
 /*
 ** EPITECH PROJECT, 2023
-** MY_EXPONENT
+** MY_FLOAT
 ** File description:
-** my_exponent
+** my_float
 */
 
-#include "my.h"
 #include <stdio.h>
+#include "my.h"
 
-void show_my_float(int result, int k, int getnbr)
+double rounded_nbr_exponent(double nbr, int getnbr, int count)
 {
-    int rest = 0;
-    int i = 0;
+    double temp = nbr * my_compute_power_rec(10, getnbr);
+    double rounded_nbr;
+    long int int_part = (int)temp;
 
-    for (i = getnbr + k; i > 0; i--) {
-        rest = result % my_compute_power_rec(10, i) /
-            my_compute_power_rec(10, i - 1);
-        my_putchar(rest + '0');
-        if (i == getnbr + k)
-            my_putchar('.');
+    if (temp - int_part >= 0.5) {
+        int_part += 1;
     }
+    rounded_nbr = (double)int_part / my_compute_power_rec(10, count - 1);
+    return rounded_nbr;
 }
 
-void my_exponent(char const *str, double nbr)
+void show_exponent(int count, int getnbr, long int result)
 {
-    int l = 0;
-    int r = 0;
-    int result = nbr;
-    int count = nbr;
-    int m = 10;
-    int k = 0;
-    int getnbr = my_getnbr(str);
-
-    if (getnbr != 0)
-        result = nbr * my_compute_power_rec(10, getnbr);
-    else
-        result = nbr * 100000;
-    while (l != count) {
-        r = count % m;
-        m = m * 10;
-        k += 1;
-        l = r;
+    int i = 0;
+    long int rest = 0;
+    for (i = getnbr + count; i > 0; i--) {
+        rest = result % my_compute_power_rec(10, i + 1) /
+            my_compute_power_rec(10, i);
+        if (i > count - 1) {
+            my_putchar(rest + '0');
+        } else if (i == count - 1){
+            my_putstr("e+");
+            my_putchar('0');
+            my_put_nbr(count - 1);
+        }
+        if (i == count + getnbr  && getnbr != 0)
+            my_putchar('.');
     }
-    show_my_float(result, k, getnbr);
+    
+}
+
+int my_exponent(char const *str, double nbr)
+{
+    int count = 0;
+    int part_entiere = (int)nbr;
+    int first_part = (int)nbr;
+    long int result = 0;
+    int getnbr = my_getnbr(str);
+    double temp;
+
+    while (part_entiere != 0) {
+        part_entiere = part_entiere / 10;
+        count += 1;
+    }
+    temp = rounded_nbr_exponent(nbr, getnbr, count);
+    result = temp * my_compute_power_rec(10, count);
+    show_exponent(count, getnbr, result);
+    return count + getnbr;
 }
