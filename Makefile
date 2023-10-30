@@ -22,7 +22,8 @@ SRC =		mini_printf.c \
 		octal.c \
 		get_address.c \
 		my_getnbr.c \
-		my_exponent.c
+		my_exponent.c \
+		my_g.c
 
 OBJ =		$(SRC:.c=.o)
 

@@ -12,7 +12,7 @@
     #include <stdlib.h>
     #include <limits.h>
 
-int my_compute_power_rec(int nb, int p);
+long int my_compute_power_rec(int nb, int p);
 int condition_result_square_root(int result);
 int condition_one_square_root(int nb);
 int my_compute_square_root(int nb);

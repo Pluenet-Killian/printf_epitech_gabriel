@@ -6,9 +6,14 @@
 */
 
 #include "mini_printf.h"
+#include "my.h"
+#include "flags.h"
+#include <stdio.h>
 
 int main(void)
 {
-    mini_printf("bonjour %s, prc %%,", "Tout le monde");
+    double nbr = 44.79;
+    my_g("4", nbr);
+    printf("\n%.4g\n", nbr);
     return 0;
 }

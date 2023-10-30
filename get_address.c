@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** my_put_ptr.c
+** MY_PUT_PTR
 ** File description:
 ** Function to displays ptr
 */

@@ -5,42 +5,49 @@
 ** my_float
 */
 
-#include "my.h"
 #include <stdio.h>
+#include "my.h"
 
-void show_my_float(int result, int k, int getnbr)
+long int rounded_nbr_float(double nbr, int getnbr, int count, long int result)
 {
-    int rest = 0;
-    int i = 0;
+    long int temp = nbr * my_compute_power_rec(10, getnbr);
 
-    for (i = getnbr + k; i > 0; i--) {
+    if (temp % 10 >= 5 && temp != result)
+        result += 1;
+    return result;
+}
+
+void show_float(int count, int getnbr, long int result)
+{
+    int i = 0;
+    long int rest = 0;
+
+    for (i = count + getnbr; i > 0; i--) {
         rest = result % my_compute_power_rec(10, i) /
             my_compute_power_rec(10, i - 1);
         my_putchar(rest + '0');
-        if (i == getnbr + k)
+        if (i == getnbr + 1 && getnbr != 0)
             my_putchar('.');
     }
 }
 
-void my_float(char const *str, double nbr)
+int my_float(char const *str, double nbr)
 {
-    int l = 0;
-    int r = 0;
-    int result = nbr;
-    int count = nbr;
-    int	m = 10;
-    int	k = 0;
+    int count = 0;
+    int part_entiere = (int)nbr;
+    int first_part = (int)nbr;
+    long int result = 0;
     int getnbr = my_getnbr(str);
+    double temp;
 
-    if (getnbr != 0)
-        result = nbr * my_compute_power_rec(10, getnbr);
-    else
-        result = nbr * 100000;
-    while (l != count) {
-        r = count % m;
-        m = m * 10;
-        k += 1;
-        l = r;
+    if (str[0] == '\0')
+        getnbr = 6;
+    while (part_entiere != 0) {
+        part_entiere = part_entiere / 10;
+        count += 1;
     }
-    show_my_float(result, k, getnbr);
+    result = nbr * my_compute_power_rec(10, getnbr);
+    result = rounded_nbr_float(nbr, count, getnbr, result);
+    show_float(count, getnbr, result);
+    return count + getnbr;
 }

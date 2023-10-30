@@ -17,7 +17,7 @@ unsigned long int my_put_hexa_unsi_long(unsigned long int nbr)
     char *str2 = malloc(sizeof(char) * 80000);
 
     while (nbr != 0) {
-	rest = nbr % 16;
+        rest = nbr % 16;
         str2[l] = hex_chars[rest];
         l += 1;
         nbr /= 16;
